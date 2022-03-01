@@ -57,5 +57,8 @@ def index():
         if result is None:
             print("result is none!")
         else:
-            json_res = {"iterations":result.id, "params":result.params, "log_likelihood":result.log_likelihood, "tiebreaker":result.tiebreaker}
+            l = result.params.split(",")
+            # make the list separated by spaces
+            params = " ".join(l)
+            json_res = {"iterations":result.id, "params":params, "log_likelihood":result.log_likelihood, "tiebreaker":result.tiebreaker}
             return json_res
